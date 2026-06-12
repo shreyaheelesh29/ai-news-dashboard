@@ -3,65 +3,142 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="A compact AI news dashboard for tracking fast-moving stories, signals, and next actions.">
+    <meta name="description" content="A dark futuristic AI news dashboard with live headlines, trending tools, company profiles, search, and bookmarks.">
     <title>AI News Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <main class="shell">
-      <section class="hero" aria-labelledby="page-title">
+    <div class="noise" aria-hidden="true"></div>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="AI News Dashboard home">
+        <span class="brand-mark">AI</span>
+        <span>News Dashboard</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#news">News</a>
+        <a href="#tools">Tools</a>
+        <a href="#companies">Companies</a>
+        <a href="#bookmarks">Bookmarks</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
         <div class="hero-copy">
-          <p class="eyebrow">Signal tracker</p>
-          <h1 id="page-title">AI News Dashboard</h1>
+          <p class="eyebrow">Live intelligence room</p>
+          <h1>Track the AI boom before everyone else catches up.</h1>
           <p class="lede">
-            A compact board for tracking AI stories, product launches, research signals,
-            and the next actions worth taking before the news cycle moves on.
+            Scan fast-moving AI headlines, discover trending tools, compare leading companies,
+            and save the stories worth revisiting. Built as a recruiter-friendly front-end project
+            with API data, search, filtering, and Local Storage.
           </p>
-          <div class="actions" aria-label="Primary actions">
-            <a class="button primary" href="#log">View log</a>
-            <a class="button secondary" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+          <div class="hero-actions">
+            <a class="button primary" href="#news">Explore news</a>
+            <a class="button ghost" href="#tools">Search tools</a>
           </div>
         </div>
-        <div class="status-panel" aria-label="Project status">
-          <div>
-            <span class="label">Mode</span>
-            <strong>Monitoring AI</strong>
+
+        <aside class="command-panel" aria-label="Dashboard pulse">
+          <div class="panel-header">
+            <span class="pulse"></span>
+            <span>Signal pulse</span>
           </div>
-          <div>
-            <span class="label">Updated</span>
-            <strong id="today">June 12, 2026</strong>
+          <div class="metric-grid">
+            <div>
+              <span class="metric-value" id="news-count">12</span>
+              <span class="metric-label">news signals</span>
+            </div>
+            <div>
+              <span class="metric-value" id="tool-count">18</span>
+              <span class="metric-label">AI tools</span>
+            </div>
+            <div>
+              <span class="metric-value" id="bookmark-count">0</span>
+              <span class="metric-label">bookmarks</span>
+            </div>
+            <div>
+              <span class="metric-value">24/7</span>
+              <span class="metric-label">watch mode</span>
+            </div>
           </div>
-          <div>
-            <span class="label">Next step</span>
-            <strong>Add live feeds</strong>
+          <div class="ticker" aria-label="Trending categories">
+            <span>Agents</span>
+            <span>Open models</span>
+            <span>Video AI</span>
+            <span>Robotics</span>
+            <span>AI coding</span>
           </div>
+        </aside>
+      </section>
+
+      <section class="section" id="news" aria-labelledby="news-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Latest AI news</p>
+            <h2 id="news-title">Headlines moving the market</h2>
+          </div>
+          <button class="icon-button" id="refresh-news" type="button" aria-label="Refresh AI news">
+            <span aria-hidden="true">Refresh</span>
+          </button>
+        </div>
+        <div class="news-toolbar">
+          <label class="search-box">
+            <span>Search news</span>
+            <input id="news-search" type="search" placeholder="Search models, chips, startups...">
+          </label>
+          <div class="chip-row" id="news-filters" aria-label="News filters"></div>
+        </div>
+        <div class="status-line" id="news-status">Loading live AI headlines...</div>
+        <div class="news-grid" id="news-grid"></div>
+      </section>
+
+      <section class="section split-section" id="tools" aria-labelledby="tools-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Trending AI tools</p>
+            <h2 id="tools-title">Find the right tool fast</h2>
+          </div>
+          <label class="search-box compact">
+            <span>Search AI tools</span>
+            <input id="tool-search" type="search" placeholder="Chat, code, video, design...">
+          </label>
+        </div>
+        <div class="tool-layout">
+          <div class="tool-filters" id="tool-filters" aria-label="Tool filters"></div>
+          <div class="tool-grid" id="tool-grid"></div>
         </div>
       </section>
 
-      <section class="board" id="log" aria-labelledby="log-title">
+      <section class="section" id="companies" aria-labelledby="companies-title">
         <div class="section-heading">
-          <p class="eyebrow">Dashboard</p>
-          <h2 id="log-title">Today&apos;s watchlist</h2>
+          <div>
+            <p class="eyebrow">Company profiles</p>
+            <h2 id="companies-title">Who is shaping the next wave?</h2>
+          </div>
         </div>
-        <div class="cards">
-          <article class="card">
-            <span class="tag">Now</span>
-            <h3>Model releases</h3>
-            <p>Track notable launches, version changes, pricing updates, and API availability.</p>
-          </article>
-          <article class="card">
-            <span class="tag">Next</span>
-            <h3>Research signals</h3>
-            <p>Capture papers, benchmarks, safety findings, and open-source releases worth reading.</p>
-          </article>
-          <article class="card">
-            <span class="tag">Later</span>
-            <h3>Action items</h3>
-            <p>Convert important updates into experiments, summaries, alerts, or product decisions.</p>
-          </article>
+        <div class="company-grid" id="company-grid"></div>
+      </section>
+
+      <section class="section bookmarks-section" id="bookmarks" aria-labelledby="bookmarks-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Saved intelligence</p>
+            <h2 id="bookmarks-title">Bookmarks</h2>
+          </div>
+          <button class="button ghost small" id="clear-bookmarks" type="button">Clear all</button>
         </div>
+        <div class="bookmark-list" id="bookmark-list"></div>
       </section>
     </main>
+
+    <footer class="footer">
+      <span>Built with HTML, CSS, JavaScript, a public news API, and Local Storage.</span>
+      <span id="updated-at">Updated today</span>
+    </footer>
+
     <script src="script.js"></script>
   </body>
 </html>

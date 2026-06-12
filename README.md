@@ -1,12 +1,23 @@
 # AI News Dashboard
 
-A small static page for tracking AI news, research signals, product launches, and action items.
+A dark futuristic AI news dashboard for tracking fast-moving headlines, trending tools, company profiles, and bookmarked articles.
 
-## Files
+## Features
 
-- `index.html` is the page markup.
-- `styles.css` contains the responsive layout and visual styling.
-- `script.js` keeps the displayed update date current.
+- Live AI news cards from a public Hacker News Algolia API, with curated fallback data
+- Searchable and filterable AI news
+- Trending AI tools directory with category filters
+- AI company profile cards
+- Bookmark articles with Local Storage
+- Responsive dark UI designed for a portfolio or recruiter review
+
+## Tech
+
+- HTML
+- CSS
+- JavaScript
+- Public news API
+- Local Storage
 
 ## Run locally
 
