@@ -1,6 +1,6 @@
-# Whatever I'm Working On
+# AI News Dashboard
 
-A small static page for publishing current work, notes, and experiments.
+A small static page for tracking AI news, research signals, product launches, and action items.
 
 ## Files
 
